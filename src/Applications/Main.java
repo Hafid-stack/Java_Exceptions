@@ -7,16 +7,24 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws NegativeNumbersException {
-        int number = 0;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number: ");
-        number = sc.nextInt();
-        NaturalNumbers naturalNumbers=new NaturalNumbers(number);
         try {
-            System.out.println("Natural Numbers: " + naturalNumbers.getValue());
+            NaturalNumbers n1=new NaturalNumbers(5);
+            System.out.println("Initial Value " +n1.getValue());
+            n1.setValue(-50);
+            System.out.println("current value "+n1.getValue());
+            for (int i=0;i<60;i++){
+                System.out.println("test loop for");
+                n1.increaseValue();
+            }
+            System.out.println("After increase value "+n1.getValue());
+            NaturalNumbers n2=new NaturalNumbers(-50);
+            System.out.println("Initial Value " +n2.getValue());
+            n2.setValue(50);
+            System.out.println("current value "+n2.getValue());
+
         }catch (NegativeNumbersException e){
             System.out.println(e.getMessage());
-            System.out.println(e.negativeMessage(naturalNumbers.getValue());
+            System.out.println("NegativeNumbersException "+e.getMessage()+e.negativeValue());
         }
 
     }

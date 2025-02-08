@@ -2,9 +2,10 @@ package Exceptions;
 
 public class NaturalNumbers {
     private int value;
+//    private int sum;
     public NaturalNumbers(int value) throws NegativeNumbersException {
         if (value < 0) {
-            throw new NegativeNumbersException("Initial value cannot be negative: " + value);
+            throw new NegativeNumbersException("Initial value cannot be negative (1): " + value);
         }
         this.value = value;
 
@@ -15,24 +16,19 @@ public class NaturalNumbers {
     }
 
     public void setValue(int value) throws NegativeNumbersException {
-       try {
+        if (value < 0) {
+            throw new NegativeNumbersException("Initial value cannot be negative (2): " + value);
+        }
            this.value = value;
-       }catch (NegativeNumbersException e){
-           if (value < 0) {
-               throw new NegativeNumbersException("Initial value cannot be negative: "+ value);
-           }
 
-       }
 
     }
     public void increaseValue() throws NegativeNumbersException {
-       try {
-           this.value++;
-       }catch (NegativeNumbersException e){
-           if (value < 0) {
-               throw new NegativeNumbersException("Negative value");
-           }
-       }
+
+        this.value++;
+        if (this.value < 0) {
+            throw new NegativeNumbersException("Initial value cannot be negative (3): " + value);
+        }
 
 
     }
